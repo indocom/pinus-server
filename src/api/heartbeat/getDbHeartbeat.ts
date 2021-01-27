@@ -1,25 +1,28 @@
 import { Request, Response } from "express";
-
-import db from "../../db"; // TODO: Try to get away from the "relative path hell"
+import db from "../../db/models";
 
 interface DbHeartbeatResponse {
   success: boolean;
-  message?: string;
+  data?: {
+    status: string;
+  };
+  error?: string;
+  errorDetail?: string;
 }
 
-export function getDbHeartbeat(req: Request, res: Response): void {
+export async function getDbHeartbeat(req: Request, res: Response): Promise<void> {
   const respData: DbHeartbeatResponse = { success: false };
 
-  db.connect()
-    .then((obj) => {
-      obj.done();
-      respData.success = true;
-      respData.message = "Database is OK";
-      res.json(respData);
-    })
-    .catch((error) => {
-      respData.success = true;
-      respData.message = `ERROR: ${error.message || error}`;
-      res.json(respData);
-    });
+  try {
+    await db.sequelize.authenticate();
+    respData.success = true;
+    respData.data = { status: "OK" };
+
+    res.send(respData);
+  } catch (err) {
+    respData.error = "Unable to connect to the database";
+    respData.errorDetail = err.message;
+
+    res.send(respData);
+  }
 }
