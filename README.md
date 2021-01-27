@@ -16,18 +16,7 @@ Then, install all the dependencies:
 yarn install
 ```
 
-Duplicate the `.env.sample` file and rename the copy to be `.env`. Fill in the database credentials as follows:
-
-- Database: `pinusweb`
-- Host: `localhost`
-- Port: `5432`
-- Username: `pinus_admin`
-- Password: `pinusians`
-- Server port: `4000`
-
-Create your local user and database with the details above.
-
-Then, set up the database tables with `yarn db:setup`, and seed it with `yarn db:seed`.
+Create the local development database with the credentials provided in `src/db/config/config.js`.
 
 ## Available Scripts
 
@@ -41,11 +30,3 @@ You can also manually restart the server by typing `rs` into the console.
 ### `yarn lint`
 
 Fixes formatting errors in all project files with `eslint --fix`.
-
-### `yarn db:setup`
-
-Executes the `schema/schema.sql` SQL script.
-
-### `yarn db:seed`
-
-Populates (aka seeds) the local database with dummy data in `schema/seed.sql`.
