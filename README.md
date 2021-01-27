@@ -22,9 +22,10 @@ Create the local development database with the credentials provided in `src/db/c
 
 ### `yarn start`
 
-Builds the project, then runs the server with `node`.
+*Note: This is used in production and is not recommended for development*
 
-This is used in production and is not recommended for development.
+Runs the server with `node`, **provided** that the project is already built
+(see: [`yarn build`](#yarn-build)).
 
 ### `yarn start:dev`
 
