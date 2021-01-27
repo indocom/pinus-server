@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "tsc && node dist/app.js",
+    "postinstall": "npm run build",
+    "start": "node dist/app.js",
     "start:dev": "npx nodemon src/app.ts",
     "lint": "eslint '*/**/*.{js,ts}' --quiet --fix",
     "build": "tsc"
