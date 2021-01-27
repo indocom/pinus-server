@@ -4,6 +4,11 @@ module.exports = {
     host: "localhost",
     database: "pinusweb",
     username: "pinus_admin",
-    password: "pinusians",
+    password: "pinusians"
   },
+  production: {
+    dialect: "postgres",
+    use_env_variable: true,
+    logging: false
+  }
 };
