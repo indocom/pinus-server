@@ -41,3 +41,28 @@ Fixes formatting errors in all project files with `eslint --fix`.
 ### `yarn build`
 
 Builds the project with `tsc`.
+
+### `yarn db:migrate`
+
+Runs pending database migrations. If runs first time, sets up the database
+tables.
+
+### `yarn db:rollback`
+
+Reverts the latest database migration.
+
+### `yarn db:reset`
+
+Resets the database, removing all tables and relations.
+
+### `yarn db:seed`
+
+*Development only*
+
+Seeds the database with dummy data specified in `src/db/seeders/` files.
+
+### `yarn db:clear`
+
+*Development only*
+
+Clears the database.
