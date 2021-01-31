@@ -19,7 +19,7 @@ export async function getDbHeartbeat(req: Request, res: Response): Promise<void>
   try {
     await db.sequelize.authenticate();
     respData.success = true;
-    respData.data = { status: "OK" };
+    respData.data = { status: "Database is OK" };
 
     res.send(respData);
   } catch (err) {

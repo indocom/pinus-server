@@ -2,13 +2,21 @@ import { Request, Response } from "express";
 
 interface ApiHeartbeatResponse {
   success: boolean;
-  message?: string;
+  data?: {
+    status: string;
+  };
+  error?: {
+    message: string;
+    detail: string;
+  };
 }
 
 export function getApiHeartbeat(req: Request, res: Response): void {
   const respData: ApiHeartbeatResponse = {
     success: true,
-    message: "API is OK",
+    data: {
+      status: "API is OK",
+    },
   };
 
   res.json(respData);
