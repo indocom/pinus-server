@@ -1,17 +1,20 @@
 import { Request, Response } from "express";
-import db from "../../db/models";
+import { db } from "../../db/models";
 
 interface DbHeartbeatResponse {
   success: boolean;
   data?: {
     status: string;
   };
-  error?: string;
-  errorDetail?: string;
+  error?: {
+    message?: string;
+    detail?: string;
+  };
 }
 
 export async function getDbHeartbeat(req: Request, res: Response): Promise<void> {
   const respData: DbHeartbeatResponse = { success: false };
+  const error = { message: "", detail: "" };
 
   try {
     await db.sequelize.authenticate();
@@ -20,8 +23,9 @@ export async function getDbHeartbeat(req: Request, res: Response): Promise<void>
 
     res.send(respData);
   } catch (err) {
-    respData.error = "Unable to connect to the database";
-    respData.errorDetail = err.message;
+    error.message = "Unable to connect to the database";
+    error.detail = err.message;
+    respData.error = error;
 
     res.send(respData);
   }
