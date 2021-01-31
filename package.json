@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "postinstall": "yarn build",
     "start": "node dist/app.js",
     "start:dev": "npx nodemon src/app.ts",
     "lint": "eslint src/**/*.ts --quiet --fix",
