@@ -11,7 +11,8 @@
     "db:rollback": "npx sequelize db:migrate:undo",
     "db:reset": "npx sequelize db:migrate:undo:all",
     "db:seed": "npx sequelize db:seed:all",
-    "db:clear": "npx sequelize db:seed:undo:all"
+    "db:clear": "npx sequelize db:seed:undo:all",
+    "firebase:dev": "npx firebase emulators:start"
   },
   "dependencies": {
     "cors": "^2.8.5",
