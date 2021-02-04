@@ -1,14 +1,16 @@
-import express from "express";
+import express, { Request, Response } from "express";
 
 import heartbeatRouter from "./heartbeat";
 import sampleDbRouter from "./sample";
+import usersRouter from "./user";
 
 const apiRouter = express.Router();
 
 apiRouter.use("/heartbeat", heartbeatRouter);
 apiRouter.use("/sample", sampleDbRouter);
+apiRouter.use("/users", usersRouter);
 
-apiRouter.get("/", (req: express.Request, res: express.Response) => {
+apiRouter.get("/", (req: Request, res: Response) => {
   res.send("Backend is running");
 });
 

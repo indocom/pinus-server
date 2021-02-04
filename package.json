@@ -11,11 +11,15 @@
     "db:rollback": "npx sequelize db:migrate:undo",
     "db:reset": "npx sequelize db:migrate:undo:all",
     "db:seed": "npx sequelize db:seed:all",
-    "db:clear": "npx sequelize db:seed:undo:all"
+    "db:clear": "npx sequelize db:seed:undo:all",
+    "firebase:dev": "npx firebase emulators:start"
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "firebase": "^8.2.5",
+    "firebase-admin": "^9.4.2",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.4.0",

@@ -18,6 +18,18 @@ yarn install
 
 Create the local development database with the credentials provided in `src/db/config/config.js`.
 
+Start the Firebase Authentication Emulator first:
+
+```
+yarn firebase:dev
+```
+
+Then, on another terminal, start the development server:
+
+```
+yarn start:dev
+```
+
 ## Available Scripts
 
 ### `yarn start`
@@ -66,3 +78,9 @@ Seeds the database with dummy data specified in `src/db/seeders/` files.
 *Development only*
 
 Clears the database.
+
+### `yarn firebase:dev`
+
+Starts the Firebase Authentication Emulator.
+
+This service will act as the local version of the real Firebase Authentication.
