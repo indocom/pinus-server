@@ -4,83 +4,115 @@ The backend server for PINUS Website.
 
 ## Development Setup
 
-To set up the development server on your local machine, make sure you have the latest:
+1. Ensure you have the latest:
 
 - npm
 - node
-- yarn
+- yarn (Install it via `npm install -g yarn`)
 
-Then, install all the dependencies:
-
-```
-yarn install
-```
-
-Create the local development database with the credentials provided in `src/db/config/config.js`.
-
-Start the Firebase Authentication Emulator first:
+2. Install all the dependencies:
 
 ```
-yarn firebase:dev
+> yarn install
 ```
 
-Then, on another terminal, start the development server:
+3. Create and set up the development database:
+
+(Note: `<USERNAME>` and `<PASSWORD>` are available in `src/db/config/config.js`,
+`<POSTGRES_PASSWORD>` is your local `postgres` password)
 
 ```
-yarn start:dev
+> createuser -U postgres --createdb --pwprompt <USERNAME>
+Enter password for new role: <PASSWORD>
+Enter it again: <PASSWORD>
+Password: <POSTGRES_PASSWORD>
+> yarn db:setup
+```
+
+4. Start the development server:
+
+```
+> yarn start:dev
+```
+
+5. Open another terminal and start the Firebase Authentication Emulator:
+
+```
+> yarn firebase:dev
 ```
 
 ## Available Scripts
 
-### `yarn start`
+Run any of the scripts below by `yarn <SCRIPT>`.
 
-*Note: This is used in production and is not recommended for development*
+### Development related
 
-Runs the server with `node`, **provided** that the project is already built
-(see: [`yarn build`](#yarn-build)).
-
-### `yarn start:dev`
+#### `start:dev`
 
 Runs the server with `nodemon`.
 
 The server will reload if you make edits.\
 You can also manually restart the server by typing `rs` into the console.
 
-### `yarn lint`
-
-Fixes formatting errors in all project files with `eslint --fix`.
-
-### `yarn build`
-
-Builds the project with `tsc`.
-
-### `yarn db:migrate`
-
-Runs pending database migrations. If runs first time, sets up the database
-tables.
-
-### `yarn db:rollback`
-
-Reverts the latest database migration.
-
-### `yarn db:reset`
-
-Resets the database, removing all tables and relations.
-
-### `yarn db:seed`
-
-*Development only*
-
-Seeds the database with dummy data specified in `src/db/seeders/` files.
-
-### `yarn db:clear`
-
-*Development only*
-
-Clears the database.
-
-### `yarn firebase:dev`
+#### `firebase:dev`
 
 Starts the Firebase Authentication Emulator.
 
 This service will act as the local version of the real Firebase Authentication.
+
+#### `db:setup`
+
+Creates the local database and sets up the tables, relations, and fill in with dummy
+data.
+
+Runs [`db:create`](#db:create), [`db:migrate`](#db:migrate), and
+[`db:seed`](#db:seed) behind the scenes.
+
+#### `lint`
+
+Fixes formatting errors in all project files with `eslint --fix` in quiet mode.
+
+### Production related
+
+#### `start`
+
+Runs the server with `node`, **provided** that the project is already built
+(see: [`build`](#build)).
+
+#### `build`
+
+Builds the project with `tsc`.
+
+### Database related
+
+#### `db:create`
+
+Creates the local database, with the credentials provided at `src/db/config/config.js`.
+
+#### `db:drop`
+
+Deletes the local database.
+
+#### `db:migrate`
+
+Runs pending database migrations.
+
+If executed on a newly created database (e.g. via [`db:create`](#db:create)) or a
+database that has just been reset (e.g. via [`db:reset`](#db:reset)), essentially
+sets up all the database tables and relations.
+
+#### `db:rollback`
+
+Reverts the latest database migration.
+
+#### `db:reset`
+
+Resets the database, removing all tables and relations.
+
+#### `db:seed`
+
+Seeds the database with dummy data specified in `src/db/seeders/` files.
+
+#### `db:clear`
+
+Clears the database.
