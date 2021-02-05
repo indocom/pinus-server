@@ -4,15 +4,18 @@
   "private": true,
   "scripts": {
     "start": "node dist/app.js",
-    "start:dev": "npx nodemon src/app.ts",
+    "start:dev": "nodemon src/app.ts",
+    "firebase:dev": "firebase emulators:start",
     "lint": "eslint src/**/*.ts --quiet --fix",
     "build": "tsc",
-    "db:migrate": "npx sequelize db:migrate",
-    "db:rollback": "npx sequelize db:migrate:undo",
-    "db:reset": "npx sequelize db:migrate:undo:all",
-    "db:seed": "npx sequelize db:seed:all",
-    "db:clear": "npx sequelize db:seed:undo:all",
-    "firebase:dev": "npx firebase emulators:start"
+    "db:setup": "yarn db:create && yarn db:migrate && yarn db:seed",
+    "db:create": "sequelize db:create",
+    "db:drop": "sequelize db:drop",
+    "db:migrate": "sequelize db:migrate",
+    "db:rollback": "sequelize db:migrate:undo",
+    "db:reset": "sequelize db:migrate:undo:all",
+    "db:seed": "sequelize db:seed:all",
+    "db:clear": "sequelize db:seed:undo:all"
   },
   "dependencies": {
     "cors": "^2.8.5",
