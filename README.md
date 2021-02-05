@@ -65,8 +65,8 @@ This service will act as the local version of the real Firebase Authentication.
 Creates the local database and sets up the tables, relations, and fill in with dummy
 data.
 
-Runs [`db:create`](#db:create), [`db:migrate`](#db:migrate), and
-[`db:seed`](#db:seed) behind the scenes.
+Runs [`db:create`](#dbcreate), [`db:migrate`](#dbmigrate), and
+[`db:seed`](#dbseed) behind the scenes.
 
 #### `lint`
 
@@ -97,8 +97,8 @@ Deletes the local database.
 
 Runs pending database migrations.
 
-If executed on a newly created database (e.g. via [`db:create`](#db:create)) or a
-database that has just been reset (e.g. via [`db:reset`](#db:reset)), essentially
+If executed on a newly created database (e.g. via [`db:create`](#dbcreate)) or a
+database that has just been reset (e.g. via [`db:reset`](#dbreset)), essentially
 sets up all the database tables and relations.
 
 #### `db:rollback`
