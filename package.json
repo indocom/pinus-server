@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "build": "tsc",
     "start": "node dist/app.js",
     "start:dev": "nodemon src/app.ts",
     "firebase:dev": "firebase emulators:start",
     "lint": "eslint src/**/*.ts --quiet --fix",
-    "build": "tsc",
     "db:setup": "yarn db:create && yarn db:migrate && yarn db:seed",
     "db:create": "sequelize db:create",
     "db:drop": "sequelize db:drop",
@@ -15,7 +15,10 @@
     "db:rollback": "sequelize db:migrate:undo",
     "db:reset": "sequelize db:migrate:undo:all",
     "db:seed": "sequelize db:seed:all",
-    "db:clear": "sequelize db:seed:undo:all"
+    "db:clear": "sequelize db:seed:undo:all",
+    "migration:generate": "sequelize migration:generate",
+    "model:generate": "sequelize model:generate --underscored",
+    "seed:generate": "sequelize seed:generate"
   },
   "dependencies": {
     "cors": "^2.8.5",

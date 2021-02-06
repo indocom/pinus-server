@@ -116,3 +116,23 @@ Seeds the database with dummy data specified in `src/db/seeders/` files.
 #### `db:clear`
 
 Clears the database.
+
+#### `migration:generate`
+
+Usage: `yarn migration:generate --name MIGRATION_NAME`
+
+Creates a migration file with the specified migration name.
+
+#### `model:generate`
+
+Usage: `yarn model:generate --name MODEL_NAME --attributes ATTRIBUTES_1:TYPE_1 ...`
+
+Creates a model file with the specified name and attributes.
+
+Also creates a migration file for creating the corresponding model.
+
+#### `seed:generate`
+
+Usage: `yarn seed:generate --name <SEED_NAME>`
+
+Creates a seed file with the specified seed name.
