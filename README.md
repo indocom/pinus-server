@@ -29,13 +29,19 @@ Password: <POSTGRES_PASSWORD>
 > yarn db:setup
 ```
 
-4. Start the development server:
+4. Duplicate the `.env.sample` file and rename the copy to be `.env`. Fill in the
+`FIREBASE_API_KEY` variable according to the credential documents shared by the
+Tech Directors (if you haven't got access to it, do let the Directors know).
+
+**Warning**: The API Key is a **confidential** information. Do not disclose it.
+
+5. Start the development server:
 
 ```
 > yarn start:dev
 ```
 
-5. Open another terminal and start the Firebase Authentication Emulator:
+6. Open another terminal and start the Firebase Authentication Emulator:
 
 ```
 > yarn firebase:dev
