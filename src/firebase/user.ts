@@ -1,25 +1,12 @@
 import { auth } from "firebase-admin";
 
-import { FirebasePromise, handleFirebasePromise } from "./util";
+import { FirebaseUser, FirebaseUserCreationData } from "./model";
+import { FirebasePromise, handleFirebasePromise, collectFirebaseUserData } from "./util";
 
-// Interfaces
-
-export interface FirebaseUser {
-  uid: string;
-  displayName: string;
-  email: string;
-}
-
-interface FirebaseUserCreationData {
-  displayName: string;
-  email: string;
-  password: string;
-}
+export { FirebaseUser as Instance, FirebaseUserCreationData as CreationData } from "./model";
 
 type FirebaseUserPromise = FirebasePromise<FirebaseUser>;
 type FirebaseUsersPromise = FirebasePromise<FirebaseUser[]>;
-
-// Operations
 
 export async function createUser(data: FirebaseUserCreationData): FirebaseUserPromise {
   const [record, err] = await handleFirebasePromise(auth().createUser(data));
@@ -58,13 +45,7 @@ export async function getUserByUid(uid: string): FirebaseUserPromise {
   return [user, undefined];
 }
 
-interface FirebaseUserUpdateData {
-  displayName?: string;
-  email?: string;
-  password?: string;
-}
-
-export async function updateUser(uid: string, data: FirebaseUserUpdateData): FirebaseUserPromise {
+export async function updateUser(uid: string, data: Partial<FirebaseUserCreationData>): FirebaseUserPromise {
   const [record, err] = await handleFirebasePromise(auth().updateUser(uid, data));
 
   if (err) {
@@ -90,16 +71,4 @@ export async function deleteUser(uid: string): FirebaseUserPromise {
   }
 
   return [user, undefined];
-}
-
-// Helpers
-
-function collectFirebaseUserData(record: auth.UserRecord): FirebaseUser {
-  const user: FirebaseUser = {
-    uid: record.uid,
-    displayName: record.displayName as string,
-    email: record.email as string,
-  };
-
-  return user;
 }
