@@ -1,12 +1,11 @@
 import { RequestHandler } from "express";
 
-import { ApiResponse } from "../response";
+import { HeartbeatApiResponse } from "./types";
 import { BaseError } from "../error";
-
 import { HeartbeatService } from "../../services";
 
 export const getApiHeartbeat: RequestHandler = async (req, res) => {
-  const response: ApiResponse<HeartbeatService.HeartbeatData> = { success: false };
+  const response: HeartbeatApiResponse = { success: false };
 
   const [data, err] = await HeartbeatService.getApiHeartbeat();
 

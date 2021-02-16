@@ -18,7 +18,8 @@
     "db:clear": "sequelize db:seed:undo:all",
     "migration:generate": "sequelize migration:generate",
     "model:generate": "sequelize model:generate --underscored",
-    "seed:generate": "sequelize seed:generate"
+    "seed:generate": "sequelize seed:generate",
+    "docs:generate": "node scripts/docgen.mjs"
   },
   "dependencies": {
     "cors": "^2.8.5",
