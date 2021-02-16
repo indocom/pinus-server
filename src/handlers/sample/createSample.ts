@@ -1,12 +1,11 @@
 import { RequestHandler } from "express";
 
-import { ApiResponse } from "../response";
+import { CreateSampleApiResponse } from "./types";
 import { BadRequestError, BaseError } from "../error";
-
 import { SampleService } from "../../services";
 
 export const createSample: RequestHandler = async (req, res) => {
-  const response: ApiResponse<SampleService.Sample> = { success: false };
+  const response: CreateSampleApiResponse = { success: false };
 
   const { name, rawValue } = req.body;
   if (!name) {

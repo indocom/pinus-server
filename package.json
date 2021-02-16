@@ -18,7 +18,8 @@
     "db:clear": "sequelize db:seed:undo:all",
     "migration:generate": "sequelize migration:generate",
     "model:generate": "sequelize model:generate --underscored",
-    "seed:generate": "sequelize seed:generate"
+    "seed:generate": "sequelize seed:generate",
+    "docs:generate": "node scripts/docgen.mjs"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -44,6 +45,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
+    "swagger-jsdoc": "^6.0.2",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
   }

@@ -1,12 +1,11 @@
 import { RequestHandler } from "express";
 
-import { ApiResponse } from "../response";
+import { IndexSampleApiResponse } from "./types";
 import { BaseError } from "../error";
-
 import { SampleService } from "../../services";
 
 export const indexSample: RequestHandler = async (req, res) => {
-  const response: ApiResponse<SampleService.Sample[]> = { success: false };
+  const response: IndexSampleApiResponse = { success: false };
 
   const { rawLimit, rawOffset } = req.query;
 

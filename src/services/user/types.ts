@@ -2,7 +2,22 @@ import { ServicePromise } from "../promise";
 
 import { FirebaseUser } from "../../firebase";
 
+/**
+ * @openapi
+ * components:
+ *  schemas:
+ *    User:
+ *      $ref: '#/components/schemas/FirebaseUser'
+ */
 export type User = FirebaseUser.Instance;
+
+/**
+ * @openapi
+ * components:
+ *  schemas:
+ *    UserCreationData:
+ *      $ref: '#/components/schemas/FirebaseUserCreationData'
+ */
 
 type UserPromise = ServicePromise<User>;
 type UsersPromise = ServicePromise<User[]>;

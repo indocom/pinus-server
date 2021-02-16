@@ -1,12 +1,11 @@
 import { RequestHandler } from "express";
 
-import { ApiResponse } from "../response";
+import { DeleteSampleApiResponse } from "./types";
 import { BadRequestError, BaseError } from "../error";
-
 import { SampleService } from "../../services";
 
 export const deleteSample: RequestHandler = async (req, res) => {
-  const response: ApiResponse<SampleService.Sample> = { success: false };
+  const response: DeleteSampleApiResponse = { success: false };
 
   const id = parseInt(req.params.id, 10);
   if (id === NaN) {
