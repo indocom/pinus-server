@@ -1,7 +1,7 @@
 import * as T from "./types";
 import { DatabaseError } from "../error";
 
-import { Sample } from "../../db";
+import { Sample } from "@db";
 
 export async function indexSample(req: T.IndexSampleRequest): T.IndexSampleResponse {
   const [result, err] = await Sample.getSamples(req.limit, req.offset);

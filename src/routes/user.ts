@@ -1,6 +1,6 @@
 import express from "express";
 
-import { User } from "../handlers";
+import { User } from "@handlers";
 
 const usersRouter = express.Router();
 
