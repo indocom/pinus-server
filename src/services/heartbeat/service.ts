@@ -1,7 +1,6 @@
 import * as T from "./types";
-
-import { Connection } from "../../db";
 import { DatabaseError } from "../error";
+import { Connection } from "@db";
 
 export async function getApiHeartbeat(): T.GetApiHeartbeatResponse {
   const data: T.HeartbeatData = {

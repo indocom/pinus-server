@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && tscpaths -p tsconfig.json -s ./src -o ./dist",
     "start": "node dist/app.js",
-    "start:dev": "nodemon src/app.ts",
+    "start:dev": "nodemon -x ts-node -r tsconfig-paths/register src/app.ts",
     "firebase:dev": "firebase emulators:start",
     "lint": "eslint src/**/*.ts --quiet --fix",
     "db:setup": "yarn db:create && yarn db:migrate && yarn db:seed",
@@ -25,11 +25,13 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "firebase-admin": "^9.4.2",
+    "firebase-admin": "^9.5.0",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.4.0",
-    "sequelize-cli": "^6.2.0"
+    "sequelize-cli": "^6.2.0",
+    "tsconfig-paths": "^3.9.0",
+    "tscpaths": "^0.0.9"
   },
   "devDependencies": {
     "@types/cors": "^2.8.9",

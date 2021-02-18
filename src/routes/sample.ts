@@ -1,6 +1,6 @@
 import express from "express";
 
-import { Sample } from "../handlers";
+import { Sample } from "@handlers";
 
 const sampleDbRouter = express.Router();
 
