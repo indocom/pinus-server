@@ -1,6 +1,6 @@
 import express from "express";
 
-import { Heartbeat } from "../handlers";
+import { Heartbeat } from "@handlers";
 
 const heartbeatRouter = express.Router();
 

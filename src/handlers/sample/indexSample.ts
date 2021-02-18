@@ -2,7 +2,7 @@ import { RequestHandler } from "express";
 
 import { IndexSampleApiResponse } from "./types";
 import { BaseError } from "../error";
-import { SampleService } from "../../services";
+import { SampleService } from "@services";
 
 export const indexSample: RequestHandler = async (req, res) => {
   const response: IndexSampleApiResponse = { success: false };

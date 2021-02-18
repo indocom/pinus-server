@@ -2,8 +2,7 @@ import { RequestHandler } from "express";
 
 import { ApiResponse } from "../response";
 import { BaseError } from "../error";
-
-import { UserService } from "../../services";
+import { UserService } from "@services";
 
 export const updateUser: RequestHandler = async (req, res) => {
   const response: ApiResponse<UserService.User> = { success: false };

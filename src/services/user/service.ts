@@ -1,7 +1,7 @@
 import * as T from "./types";
 import { FirebaseError } from "../error";
 
-import { FirebaseUser } from "../../firebase";
+import { FirebaseUser } from "@fb";
 
 export async function indexUser(req: T.IndexUserRequest): T.IndexUserResponse {
   const [users, err] = await FirebaseUser.getUsers(req.limit);
