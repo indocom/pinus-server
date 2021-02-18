@@ -2,7 +2,6 @@ import { RequestHandler } from "express";
 
 import { ApiResponse } from "../response";
 import { BaseError } from "../error";
-
 import { UserService } from "@services";
 
 export const getUser: RequestHandler = async (req, res) => {

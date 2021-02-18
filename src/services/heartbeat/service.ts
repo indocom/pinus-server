@@ -1,6 +1,5 @@
 import * as T from "./types";
 import { DatabaseError } from "../error";
-
 import { Connection } from "@db";
 
 export async function getApiHeartbeat(): T.GetApiHeartbeatResponse {

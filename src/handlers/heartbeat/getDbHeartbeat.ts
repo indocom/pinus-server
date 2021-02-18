@@ -2,7 +2,6 @@ import { RequestHandler } from "express";
 
 import { DbHeartbeatApiResponse } from "./types";
 import { BaseError } from "../error";
-
 import { HeartbeatService } from "@services";
 
 export const getDbHeartbeat: RequestHandler = async (req, res) => {

@@ -2,7 +2,6 @@ import { RequestHandler } from "express";
 
 import { CreateSampleApiResponse } from "./types";
 import { BadRequestError, BaseError } from "../error";
-
 import { SampleService } from "@services";
 
 export const createSample: RequestHandler = async (req, res) => {

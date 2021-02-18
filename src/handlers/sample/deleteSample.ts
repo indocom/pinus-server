@@ -2,7 +2,6 @@ import { RequestHandler } from "express";
 
 import { DeleteSampleApiResponse } from "./types";
 import { BadRequestError, BaseError } from "../error";
-
 import { SampleService } from "@services";
 
 export const deleteSample: RequestHandler = async (req, res) => {
