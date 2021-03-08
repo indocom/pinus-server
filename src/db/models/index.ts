@@ -2,9 +2,11 @@ import { Options, Sequelize } from "sequelize";
 
 import configs, { Config } from "../config/config";
 import { SampleFactory } from "./sample";
+import { ArticleFactory} from "./article";
 
 const env = process.env.NODE_ENV || "development";
 const config: Config = configs[env];
+
 
 // Sequelize instance
 export const sequelize = config.use_env_variable
@@ -30,4 +32,6 @@ export const sequelize = config.use_env_variable
 
 // Sample model and interfaces
 export * from "./sample";
+export * from "./article";
 export const Sample = SampleFactory(sequelize);
+export const Article = ArticleFactory(sequelize);
