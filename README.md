@@ -9,6 +9,7 @@ The backend server for PINUS Website.
 - npm
 - node
 - yarn (Install it via `npm install -g yarn`)
+- Firebase CLI (Install it via `npm install -g firebase-tools`)
 
 2. Install all the dependencies:
 
