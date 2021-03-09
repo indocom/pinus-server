@@ -6,7 +6,7 @@
     "build": "tsc && tscpaths -p tsconfig.json -s ./src -o ./dist",
     "start": "node dist/app.js",
     "start:dev": "nodemon -x ts-node -r tsconfig-paths/register src/app.ts",
-    "firebase:dev": "firebase emulators:start",
+    "firebase:dev": "firebase emulators:start --import seed",
     "lint": "eslint src/**/*.ts --quiet --fix",
     "db:setup": "yarn db:create && yarn db:migrate && yarn db:seed",
     "db:create": "sequelize db:create",
