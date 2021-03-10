@@ -1,8 +1,10 @@
 import express from "express";
 
-import { User } from "@handlers";
+import { Auth, User } from "@handlers";
 
 const usersRouter = express.Router();
+
+usersRouter.use(Auth.ensureLoggedIn);
 
 /**
  * @openapi
