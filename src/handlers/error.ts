@@ -31,3 +31,9 @@ export class BadRequestError extends ApiError {
     super("bad-request", message);
   }
 }
+
+export class UnauthorizedError extends ApiError {
+  constructor() {
+    super("unauthorized", "Unauthorized");
+  }
+}
