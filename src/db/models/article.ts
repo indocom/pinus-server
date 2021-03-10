@@ -1,14 +1,15 @@
 import { Sequelize, DataTypes, Model, Optional, ModelCtor } from "sequelize";
 
 export interface ArticleAttributes{
-  id?:number,
-  userId: number,
+  id?: number,
+  authorId: number,
+  authorName: string,
   title: string,
   description: string,
   body: string,
-  categoryId:number,
-  createdAt?:Date,
-  updatedAt?:Date
+  categoryId: number,
+  createdAt?: Date,
+  updatedAt?: Date
 }
 
 export interface ArticleCreationAttributes extends Optional<ArticleAttributes,"id">{}
@@ -21,11 +22,12 @@ export function ArticleFactory(sequelize: Sequelize): ArticleModel {
   const Article = sequelize.define<ArticleInstance>(
     "Article",
     {
-      userId: DataTypes.INTEGER,
+      authorId: DataTypes.INTEGER,
+      authorName: DataTypes.STRING,
       title: DataTypes.STRING,
       description: DataTypes.STRING,
       body: DataTypes.STRING,
-      categoryId:DataTypes.INTEGER,
+      categoryId: DataTypes.INTEGER,
     },
     { underscored: true }
   );
