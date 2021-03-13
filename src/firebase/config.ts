@@ -1,6 +1,7 @@
 import * as admin from "firebase-admin";
 
 import { getVar } from "../utils";
+import { clearSeed, seed } from "./seed";
 
 export interface FirebaseConfig {
   adminCredentials: Record<string, unknown>;
@@ -18,7 +19,7 @@ export function initFirebaseConfig(onProduction: boolean): FirebaseConfig {
   return config;
 }
 
-export function initFirebase(config: FirebaseConfig, onProduction: boolean): void {
+function initFirebase(config: FirebaseConfig, onProduction: boolean): void {
   if (onProduction) {
     admin.initializeApp({
       credential: admin.credential.cert(config.adminCredentials),
@@ -27,5 +28,14 @@ export function initFirebase(config: FirebaseConfig, onProduction: boolean): voi
     admin.initializeApp({
       projectId: "pinus-server-dev",
     });
+  }
+}
+
+export async function setupFirebase(config: FirebaseConfig, onProduction: boolean): Promise<void> {
+  initFirebase(config, onProduction);
+
+  if (!onProduction) {
+    await clearSeed();
+    await seed();
   }
 }
