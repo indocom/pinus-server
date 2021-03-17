@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
 import { Sequelize, DataTypes, Model, Optional, ModelCtor } from "sequelize";
 
 export interface UserAttributes {
@@ -15,7 +16,7 @@ export interface UserInstance extends Model<UserAttributes, UserCreationAttribut
 type UserModel = ModelCtor<UserInstance>;
 
 export function UserFactory(sequelize: Sequelize): UserModel {
-  const User = sequelize.define<UserInstance>(  
+  const User = sequelize.define<UserInstance>(
     "users",
     {
       uid: DataTypes.STRING,
